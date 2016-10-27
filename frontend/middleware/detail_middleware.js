@@ -7,7 +7,7 @@ const PokemonDetailMiddleware = ({dispatch}) => next => action => {
   switch(action.type) {
     case REQUEST_DETAIL:
       const success = data => { dispatch(receiveDetail(data)); };
-      fetchDetail(success, error);
+      fetchDetail(action.id, success, error);
       return next(action);
     default:
       return next(action);

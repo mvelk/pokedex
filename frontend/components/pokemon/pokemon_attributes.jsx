@@ -1,6 +1,9 @@
 import React from 'react';
 
-const PokemonAttributes = ({ detail }) => (
+const PokemonAttributes = ({ detail }) => {
+  console.log(detail);
+  console.log(detail.moves);
+  return(
   <ul>
     <img src={detail.image_url} />
     <li><h2>{detail.name}</h2></li>
@@ -9,10 +12,11 @@ const PokemonAttributes = ({ detail }) => (
     <li>Defense: {detail.defense}</li>
     <li>Moves:
       <ul>
-        {detail.moves.map((move, idx) => (<li key={idx}>move</li>))}
+        {detail.moves.map((move, idx) => (<li key={idx}>{move}</li>))}
       </ul>
     </li>
   </ul>
 );
+};
 
 export default PokemonAttributes;
