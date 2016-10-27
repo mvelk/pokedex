@@ -6,19 +6,19 @@ import { requestAllPokemon, requestDetail } from '../actions/pokemon_actions';
 import PokemonDetailContainer from './pokemon/pokemon_detail_container';
 
 const Root = ({store}) => {
-  const requestOnEnter = () => {
-    store.dispatch(requestAllPokemon());
-  };
 
   const requestSinglePokemonOnEnter = (nextState) => {
-    console.log(nextState.params.pokemonId);
     store.dispatch(requestDetail(nextState.params.pokemonId));
+  };
+
+  const requestPokemon = () => {
+    store.dispatch(requestAllPokemon());
   };
 
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path='/' component={PokemonIndexContainer} onEnter={requestOnEnter}>
+        <Route path='/' component={PokemonIndexContainer}>
           <Route path='/pokemon/:pokemonId' component={PokemonDetailContainer} onEnter={requestSinglePokemonOnEnter}/>
         </Route>
       </Router>
