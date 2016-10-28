@@ -4,8 +4,7 @@ const PokemonToys = ({toys}) => (
   <ul className="toy-list">
     {toys.map((toy, idx) => (
       <li key={idx}>
-        <img src={toy.image_url} />
-        {toy.name}
+        <img className="toy" alt={toy.name} src={toy.image_url} />
       </li>
     ))}
   </ul>

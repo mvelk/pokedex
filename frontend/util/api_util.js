@@ -17,9 +17,11 @@ export const fetchDetail = (id, success, error) => {
 };
 
 export const pushPokemon = (poke, success, error) => {
+  console.log(poke);
   $.ajax({
-    method: 'PUSH',
+    method: 'POST',
     url: '/api/pokemon',
+    data: poke,
     success,
     error
   });
